@@ -1,0 +1,11 @@
+footer {
+    text-align: center;
+    background-color: #1e1e1e;
+    color: #919191;
+    font-size: 12px;
+}
+
+.mainbox {
+    border: 5px solid mediumpurple;
+    border-radius: 10px;
+}
