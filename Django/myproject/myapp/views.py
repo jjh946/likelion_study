@@ -24,6 +24,9 @@ def HTMLTemplate(articleTag):
             {ol}
         </ul>
         {articleTag}
+        <ul>
+            <li><a href="/create/">create</a></li>
+        </ul>
     </body>
     </html>
     '''
