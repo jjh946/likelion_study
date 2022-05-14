@@ -1,3 +1,4 @@
 import requests
 
-print(requests.get)
+url = "http://www.daum.net"
+print(requests.get(url))
