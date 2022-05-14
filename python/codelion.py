@@ -1,4 +1,6 @@
 import requests
 
 url = "http://www.daum.net"
-print(requests.get(url))
+response = requests.get(url)
+
+print(response.text)
