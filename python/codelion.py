@@ -3,6 +3,10 @@ from bs4 import BeautifulSoup
 
 url = "http://www.daum.net/"
 response = requests.get(url)
-print(type(response.text))
+# print(response.text[:500])
 
-print(type(BeautifulSoup(response.text, 'html.parser')))
+soup = BeautifulSoup(response.text, 'html.parser')
+
+print(soup.title)
+print(soup.title.string)
+print(soup.span)
