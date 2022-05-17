@@ -1,18 +1,16 @@
 from bs4 import BeautifulSoup
 import requests
+from datetime import datetime
 
 url = "http://www.daum.net/"
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
+rank = 1
 
-# file = open("daum.html","w")
-# file.write(response.text)
-# file.close()
+results = soup.findAll('a','link_favorsch')
 
-# print(soup.title)
-# print(soup.title.string)
-# print(soup.span)
-# print(soup.findAll('span'))
+print(datetime.today())
 
-# html 문서에서 모든 a태그를 가져오는 코드
-print(soup.findAll("a","link_favorsch"))
+for result in results:
+    print(rank,"위 : ",result.get_text(),"\n")
+    rank += 1
