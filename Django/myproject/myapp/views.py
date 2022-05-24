@@ -66,6 +66,6 @@ def create(request):
         body = request.POST['body'] 
         newTopic = {'id':nextId, "title":title, 'body':body}       
         topics.append(newTopic)
-        url = '/read/'+nextId
+        url = '/read/'+ str(nextId)
         nextId = nextId + 1
         return redirect(url)
