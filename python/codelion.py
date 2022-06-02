@@ -6,11 +6,10 @@ apikey = "8d32d32a2c9cd8743896215a8f38a513"
 lang = "kr"
 
 api = f"""http://api.openweathermap.org/data/2.5/\
-weather?q={city}&appid={apikey}&lang={lang}"""
+weather?q={city}&appid={apikey}&lang={lang}&units=metric"""
 
 result = requests.get(api)
-
-print(result.text)
+#print(result.text)
 
 data = json.loads(result.text)
 
@@ -34,5 +33,4 @@ print("풍향은 ",data["wind"]["deg"],"입니다.")
 # 풍속 : wind - speed
 print("풍속은 ",data["wind"]["speed"],"입니다.")
 
-print(result.text)
 
