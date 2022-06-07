@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import jojoapp.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', jojoapp.views.home, name='hello_world'),
+    path('test/', jojoapp.views.test, name='hello_world'),
 ]
+
+# http://127.0.0.1:8000/
+# http://127.0.0.1:8000/1
+# http://127.0.0.1:8000/abc/1

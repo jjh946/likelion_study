@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'jojoapp.apps.JojoappCConfig', # 'jojoapp'
+    'jojoapp.apps.JojoappConfig', # 'jojoapp'
 ]
 
 MIDDLEWARE = [
