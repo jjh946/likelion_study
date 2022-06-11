@@ -1,10 +1,13 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from jojoapp import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.first),
-    path('second/', views.second)
+    path('second/', views.second),
+    path('products/', include('product.urls')),
+    path('boards/', include('board.urls'))
+
 ]
