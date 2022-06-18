@@ -9,5 +9,5 @@ class BlogForm(forms.Form):
 class BlogModelForm(forms.ModelForm):
     class Meta:
         model = Blog
-        # fields = '__al__'
-        fields = ['title', 'body']
+        fields = '__all__'
+        # fields = ['title', 'body']
