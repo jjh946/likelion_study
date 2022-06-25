@@ -16,7 +16,7 @@
 
 
 <h3>댓글</h3>
-<form method="POST" action="">
+<form method="POST" action="{% url 'create_comment' blog_detail.id %}">
     {% csrf_token %}
     {{ comment_form }}
     <input type="submit">

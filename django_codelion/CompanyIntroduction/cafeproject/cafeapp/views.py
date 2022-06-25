@@ -5,3 +5,6 @@ def home(request):
 
 def detail(request):
     return render(request, 'portfolio-details.html')
+
+def mmm(request):
+    return render(request, 'mmm.html')

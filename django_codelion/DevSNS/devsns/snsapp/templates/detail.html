@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>제목: {{ post_detail.title }}</h1>
+
+<h2>작성날짜: {{ post_detail.date }}</h2>
+
+<P>
+    {{ post_detail.body }}
+</P>
+
+<!--댓글 입력 공간-->
+<form method="POST" action="{% url 'new_comment' post_detail.id %}">
+    {% csrf_token %}
+
+    {{ comment_form }}
+    <input type="submit" value="댓글 입력">
+</form>
+
+{% endblock %}

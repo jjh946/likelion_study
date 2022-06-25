@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from blogapp import views
+from accounts import views as accounts_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -19,8 +20,10 @@ urlpatterns = [
     path('modelformcreate/', views.modelformcreate, name='modelformcreate'),
 
     path('detail/<int:blog_id>', views.detail, name='detail'),
+    path('create_comment/<int:blog_id>', views.create_comment, name='create_comment'),
 
-    
+    path('login/',accounts_views.login, name='login'),
+    path('logout/',accounts_views.logout, name='logout'),
 ] 
 
 #media 파ㄹ에 접근할 수 있는 url도 추가해 주어야 함.

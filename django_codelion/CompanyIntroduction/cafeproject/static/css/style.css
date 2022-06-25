@@ -9,12 +9,13 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Gowun Dodum', sans-serif;
   color: #444444;
 }
 
 a {
-  color: #009970;
+  /*color: #009970;*/
+  color: rgb(68,68,68);
   text-decoration: none;
 }
 
@@ -127,7 +128,9 @@ h1, h2, h3, h4, h5, h6 {
 * Desktop Navigation 
 */
 .navbar {
-  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
 }
 .navbar ul {
   margin: 0;
@@ -391,6 +394,7 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
+  margin-top: 30px;
   padding: 60px 0;
   overflow: hidden;
 }
@@ -424,29 +428,76 @@ section {
   margin-bottom: 0;
 }
 
+
 /*--------------------------------------------------------------
-# Clients
+# main
 --------------------------------------------------------------*/
-.clients {
-  background: #f6f6f7;
-  text-align: center;
-  padding: 5px 0;
-}
-.clients img {
-  width: 40%;
-  filter: grayscale(100);
-  transition: all 0.4s ease-in-out;
-  display: inline-block;
-  padding: 15px 0;
-}
-.clients img:hover {
-  filter: none;
-  transform: scale(1.1);
+.main_btn{
+  padding-top: 60px;
 }
 
 /*--------------------------------------------------------------
-# About
+# hssc
 --------------------------------------------------------------*/
+.cafe_info {
+  font-size: 20px;
+  line-height:15px;
+  text-align: center;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.info_hr{
+  color: #00664b;
+  height: 50px;
+}
+
+.hssc_btn{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.order_btn{
+  text-align: center;
+  color: #00664b;
+  border-color: #00664b;
+  background-color: white;
+  border-radius: 30px;
+  transition: 0.25s;
+  font-size: 20px;
+  padding: 10px;
+  width:200px;
+  margin-right: 30px;
+}
+
+.order_btn:hover {
+  background:#00664b;
+  color: white;
+}
+
+.gift_btn{
+  text-align: center;
+  color: #00664b;
+  border-color: #00664b;
+  background-color: white;
+  border-radius: 30px;
+  transition: 0.25s;
+  font-size: 20px;
+  padding: 10px;
+  width:200px;
+  margin-left: 30px;
+}
+
+.gift_btn:hover {
+  background: #00664b;;
+  color: white;
+}
+
+
 .about .content h2 {
   font-weight: 700;
   font-size: 48px;
@@ -598,9 +649,13 @@ section {
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
-  padding: 40px 20px;
+  padding: 20px 30px;
   transition: all ease-in-out 0.3s;
   background: #fff;
+  flex-grow: 3;
+}
+.services .icon-box p {
+  text-align: left;
 }
 .services .icon-box .icon {
   margin: 0 auto;
@@ -631,6 +686,7 @@ section {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
+  padding: 15px 20px;
 }
 .services .icon-box:hover {
   border-color: #fff;
@@ -642,6 +698,9 @@ section {
 .services .icon-box:hover .icon {
   color: #fff;
   background: #009970;
+}
+.menu-list {
+  list-style: none;
 }
 
 /*--------------------------------------------------------------
@@ -953,108 +1012,29 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Contact
+# My page
 --------------------------------------------------------------*/
-.contact .info {
-  padding: 30px;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
-.contact .info i {
+.Mypage_btn {
+  text-align: center;
+  background-color: white;
+  border-color: #00664b;
+  border-radius: 30px;
+  transition: 0.25s;
   font-size: 20px;
-  color: #fff;
-  float: left;
-  width: 44px;
-  height: 44px;
-  background: #009970;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  width: 100px;
+  margin-right: 30px;
 }
-.contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #36343a;
+
+.Mypage_btn:hover {
+  background:#00664b;
+  color: white;
 }
-.contact .info p {
-  padding: 0 0 0 60px;
-  margin-bottom: 0;
-  font-size: 14px;
-  color: #686470;
-}
-.contact .php-email-form {
-  width: 100%;
-  padding: 30px;
-  background: #fff;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
-}
-.contact .php-email-form .form-group {
-  padding-bottom: 8px;
-}
-.contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-.contact .php-email-form .error-message br + br {
-  margin-top: 25px;
-}
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-.contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
-.contact .php-email-form input, .contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-.contact .php-email-form input {
-  height: 44px;
-}
-.contact .php-email-form textarea {
-  padding: 10px 12px;
-}
-.contact .php-email-form button[type=submit] {
-  background: #009970;
-  border: 0;
-  padding: 10px 30px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
-}
-.contact .php-email-form button[type=submit]:hover {
-  background: #00805d;
-}
+
+
+
+
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
