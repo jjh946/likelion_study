@@ -25,11 +25,15 @@ def logout(request):
 def signup(request):
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:
+            #회원가입
             user = User.objects.create_user(
                                             username=request.POST['username'],
                                             password=request.POST['password1'],
-                                            email=request.POST['email'],)
+                                           )
+            #로그인
             auth.login(request, user)
+            #홈 리다이렉트
             return redirect('/')
-        return render(request, 'signup.html')
-    return render(request, 'signup.html')
+        return render(request, 'register.html')
+    return render(request, 'register.html')
+

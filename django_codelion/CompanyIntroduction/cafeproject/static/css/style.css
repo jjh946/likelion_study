@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 * Desktop Navigation 
 */
 .navbar {
-  margin-right: auto;
+  /*margin-right: auto;*/
   margin-left: auto;
   text-align: center;
 }
@@ -322,7 +322,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("../img/hero-bg.jpg") center center;
+  background: url("https://w.namu.la/s/0b381e97445dd7618d9ba8284b795acc0ac200de93b2572f49b22ce1b9cfd559e58c986cde2e9eae0bf1eb046380a3b9aa4294a4606b1f247ee5a3f848e7173360a77ea7bef301f095bcbbb6736798730a2adf0e3c98acfe584b31fe7157e798") center center;
   background-size: cover;
   position: relative;
 }
@@ -461,7 +461,7 @@ section {
   text-align: center;
 }
 
-.order_btn{
+.click_btn{
   text-align: center;
   color: #00664b;
   border-color: #00664b;
@@ -474,26 +474,8 @@ section {
   margin-right: 30px;
 }
 
-.order_btn:hover {
+.click_btn:hover {
   background:#00664b;
-  color: white;
-}
-
-.gift_btn{
-  text-align: center;
-  color: #00664b;
-  border-color: #00664b;
-  background-color: white;
-  border-radius: 30px;
-  transition: 0.25s;
-  font-size: 20px;
-  padding: 10px;
-  width:200px;
-  margin-left: 30px;
-}
-
-.gift_btn:hover {
-  background: #00664b;;
   color: white;
 }
 
@@ -527,6 +509,117 @@ section {
 }
 .about .content p:last-child {
   margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# order 1
+--------------------------------------------------------------*/
+.order-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-count, .order-price {
+  text-align: center;
+}
+
+.order-menu {
+  margin-bottom: 30px;
+}
+
+.cart {
+  border-radius: 10px;
+  box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+}
+
+.cart-box {
+  height: 300px;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.cart-title {
+  margin-top: 12px;
+  text-align: center;
+  color:#00664b;
+}
+
+.order-total-price {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-top: 1px solid black;
+}
+
+.pay-button {
+  text-align: center;
+  color: white;
+  background-color:#00664b;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 80%;
+  margin: auto;
+  display: block;
+  margin-bottom: 15px;
+  border-color:#00664b;
+}
+
+.pay-button:hover, .pay-button:active {
+  background-color: white;
+  color:#00664b;
+  border-color:#00664b;
+}
+
+/*--------------------------------------------------------------
+# gift 2
+--------------------------------------------------------------*/
+.choose {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: auto;
+  height: 250px;
+  transition: 0.3s;
+}
+
+.choose_img {
+  float: left;
+  max-width: 100%;
+  max-height: 100%;
+  margin-right: 40px;
+}
+
+.send_info {
+  float: right;
+}
+
+/*--------------------------------------------------------------
+# gift 3
+--------------------------------------------------------------*/
+.gift_done_box {
+  font-size: 20px;
+  line-height:15px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  padding: 40px;
+  width: 50%;
+  transition: 0.3s;
+}
+
+.done_img {
+  float: left;
+  max-width: 150px;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+.done_info {
+  text-align: center; 
+  margin-top: 40px;
 }
 
 /*--------------------------------------------------------------

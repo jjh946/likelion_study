@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- ORDER1 -->
+ <section>
+    <div class="container">
+
+      <div class="order-info">
+        <div class="section-title" data-aos="fade-right">
+          <h2>ORDER</h2>
+        </div>
+        <p class="order-info" data-aos="fade-right">주문하기 > 명륜캠 > 사랑방</p>
+      </div>
+      
+      <div class="container">
+        <div class="row order-detail">
+          <div class="col-lg-8">
+            <div>
+              <h4 class="order-menu">MENU</h4>
+              <div class="row">
+                <div class="col-md-4">
+                  <p>아메리카노</p>
+                  <p>에스프레소</p>
+                  <p>카페라떼</p>
+                  <p>카푸치노</p>
+                  <p>바닐라라떼</p>
+                  <p>카라멜마끼야또</p>
+                  <p>초코라떼</p>
+                  <p>아이스티</p>
+                </div>
+                <div class="col-md-6">
+                  <p>1800</p>
+                  <p>1800</p>
+                  <p>2500</p>
+                  <p>2500</p>
+                  <p>3000</p>
+                  <p>3000</p>
+                  <p>3200</p>
+                  <p>2200</p>
+                </div>
+                <div class="col-md-1">
+                  <p>+</p>
+                  <p>+</p>
+                  <p>+</p>
+                  <p>+</p>
+                  <p>+</p>
+                  <p>+</p>
+                  <p>+</p>
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 cart" data-aos="fade-up">
+            <div class="row">
+              <h4 class="cart-title">CART</h4>
+              <div class="row cart-box" style="float: none; margin:0 auto;">
+                <div class="col-md-6">
+                  <p>아메리카노</p>
+                  <p>초코라떼</p>
+                </div>
+                <div class="col-md-3 order-count">
+                  <p>1</p>
+                  <p>2</p>
+                </div>
+                <div class="col-md-3 order-price">
+                  <p>1800</p>
+                  <p>6400</p>
+                </div>
+              </div>
+
+              <div class="row" style="float: none; margin:0 auto;">
+                <div class="col-md-9 order-total-price">
+                  총 금액
+                </div>
+                <div class="col-md-3 order-total-price">
+                  8200
+                </div>
+              </div>
+            </div>
+
+            <button class="pay-button">결제하기</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

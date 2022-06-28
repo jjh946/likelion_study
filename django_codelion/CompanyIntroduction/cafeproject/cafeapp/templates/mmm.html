@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
  <!-- ======= 명륜카페 Section ======= -->
     <!-- 원래 about 이었음 -->
@@ -8,7 +8,7 @@
           <div class="row content">
             <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
               <h2>명륜 - 사랑방</h2>
-              <img src="images/200x200.png" alt="사랑방"></div>
+              <img src="" alt="사랑방"></div>
             <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
             <div class="cafe_info">
               <h2>사랑방</h2>
@@ -19,135 +19,18 @@
                 <P> 영업상태 : OPEN / CLOSE</P>
             </div>
             <div class="hssc_btn">
-              <button class="order_btn">ORDER</button>
-              <button class="gift_btn">GIFT</button>
+              <a href="{% url 'order' %}" ><button  class="order_btn" >ORDER</button></a>
+              <a href="{% url 'gift' %}" ><button  class="gift_btn" >GIFT</button></a>
             </div>
           </div>
         </section>
   
-        <section id="hssc" class="hssc"></section>
-        <div class="container">  
-          <div class="row content">
-              <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                <h2>명륜 - ttt</h2>
-                <img src="images/200x200.png" alt="ttt"></div>
-              <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
-              <div class="cafe_info">
-                <h2>ttt</h2>
-                <hr class="info_hr">
-                  <P> 위치 : 경영관 지하 2층</P>
-                  <P> 전화번호 : 02-741-0790</P>
-                  <P> 영업시간 : 학기 중 평일 10:00 ~ 19:00</P>
-                  <P> 영업상태 : OPEN / CLOSE</P>
-              </div>
-              <div class="hssc_btn">
-                <button class="order_btn">ORDER</button>
-                <button class="gift_btn">GIFT</button>
-              </div>
-            </div>
-          </div>
-        </section>
-  
-        <section id="hssc" class="hssc"></section>
-        <div class="container">  
-          <div class="row content">
-              <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                <h2>명륜 - 팬도르시</h2>
-                <img src="images/200x200.png" alt="팬도르시"></div>
-              <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
-              <div class="cafe_info">
-                <h2>팬도르시</h2>
-                <hr class="info_hr">
-                  <P> 위치 : 국제관 1층</P>
-                  <P> 전화번호 : 02-740-1938</P>
-                  <P> 영업시간 : 학기 중 평일 9:00 ~ 17:00</p>
-                  <p>방학 중 평일 8:30 ~18:30</p>
-                  <p>토요일 10:00 ~17:00</p>
-                  </P>
-                  <P> 영업상태 : OPEN / CLOSE</P>
-              </div>
-              <div class="hssc_btn">
-                <button class="order_btn">ORDER</button>
-                <button class="gift_btn">GIFT</button>
-              </div>
-            </div>
-          </div>
-        </section>
-  
-        <section id="hssc" class="hssc"></section>
-        <div class="container">  
-          <div class="row content">
-              <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                <h2>명륜 - Take-Out 커피점</h2>
-                <img src="images/200x200.png" alt="Take-Out 커피점"></div>
-              <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
-              <div class="cafe_info">
-                <h2>Take-Out 커피점</h2>
-                <hr class="info_hr">
-                  <P> 위치 : 다산경제관 1층</P>
-                  <P> 전화번호 : 정보없음</P>
-                  <P> 영업시간 : 정보없음</P>
-                  <P> 영업상태 : OPEN / CLOSE</P>
-              </div>
-              <div class="hssc_btn">
-                <button class="order_btn">ORDER</button>
-                <button class="gift_btn">GIFT</button>
-              </div>
-            </div>
-          </div>
-        </section>
-  
-        <section id="hssc" class="hssc"></section>
-          <div class="container">  
-            <div class="row content">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                  <h2>명륜 - 레브</h2>
-                  <img src="images/200x200.png" alt="레브"></div>
-                <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
-                <div class="cafe_info">
-                  <h2>레브(REVE)</h2>
-                  <hr class="info_hr">
-                    <P> 위치 : 수선관 별관 1층</P>
-                    <P> 전화번호 : 02-760-1936</P>
-                    <P> 영업시간 : 학기 중 평일 8:30 ~ 18:00</P>
-                    <P> 영업상태 : OPEN / CLOSE</P>
-                </div>
-                <div class="hssc_btn">
-                  <button class="order_btn">ORDER</button>
-                  <button class="gift_btn">GIFT</button>
-                </div>
-            </div>
-          </div>
-        </section>
-  
-        <section id="hssc" class="hssc"></section>
-        <div class="container">  
-          <div class="row content">
-              <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                <h2>명륜 - 로봇커피</h2>
-                <img src="images/200x200.png" alt="로봇커피"></div>
-              <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
-              <div class="cafe_info">
-                <h2>로봇커피</h2>
-                <hr class="info_hr">
-                  <P> 위치 : 중앙학술정보관 3층</P>
-                  <P> 전화번호 : 정보 없음</P>
-                  <P> 영업시간 : 학기 중 평일 6:00 ~ 23:30</P>
-                  <p>토요일 6:00 ~ 23:30</p>
-                  <p>일요일 6:00 ~ 23:30</P>
-                  <P> 영업상태 : OPEN / CLOSE</P>
-              </div>
-              <div class="hssc_btn">
-                <button class="order_btn">ORDER</button>
-                <button class="gift_btn">GIFT</button>
-              </div>
-          </div>
-        </div>
-      </section>
+
   
       
       <!-- End 명륜카페 Section -->
-  
+      
+
 
 
 {% endblock %}

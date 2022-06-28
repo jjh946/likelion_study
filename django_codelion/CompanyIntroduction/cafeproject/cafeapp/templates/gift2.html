@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- ======= gift2 Section ======= -->
+ <section id="gift2" class="services section-bg">
+    <div class="container">
+    <div class="row content">
+
+          <div class="section-title" data-aos="fade-right">
+            <h2>Gift</h2>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <div  style = "margin-left: 80px; margin-right:60px;" class = "choose">
+              <img class = "choose_img" src="{% static '/img/cafeimg/americano.jpg' %}" alt="americano">
+              <div style="text-align: center; margin-top: 20px;">
+                <p style="font-size: 20px; font-weight: bold;">선택 항목</p>
+                <p style="font-size: 20px;">아메리카노 1개</p>
+                <p style="font-size: 15px;">사랑방 in 명륜 캠퍼스</p>
+              </div>
+            </div>
+          </div>
+
+          <div style = "text-align: center; margin-top: 15px;" class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+            <p>받는 사람의 ID를 입력하세요.</p>
+            <input type ="ID">
+              <div style = "margin-top: 50px;">
+                <button class="click_btn">결제하기</button>
+                <button class="click_btn">취소</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End gift2 Section -->
+
+{% endblock %}
