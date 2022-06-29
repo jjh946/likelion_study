@@ -7,7 +7,7 @@ def home(request):
      #블로그 글들을 모조리 띄워주는 코드
     #posts = Blog.objects.all()
     posts = Blog.objects.filter().order_by('-date')
-    return render(request, 'index.html', {'posts':posts})
+    return render(request, 'map.html', {'posts':posts})
 
 #블로그 글 작성 html을 보여주는 함수
 def new(request):

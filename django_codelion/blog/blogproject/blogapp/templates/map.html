@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>여러개 마커에 이벤트 등록하기1</title>
+    
+</head>
+<body>
+<div id="map" style="width:800px;height:300px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2e5e380bf2532440dc4ab0b1fc797718"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.58833271113884, 126.99395954591697), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+var positions = [
+    {
+        content: '<div>사랑방</div>', 
+        latlng: new kakao.maps.LatLng(37.588454267790524, 126.99260085630388)
+    },
+    {
+        content: '<div>ttt</div>', 
+        latlng: new kakao.maps.LatLng(37.588364158125714, 126.9924366916139)
+    },
+    {
+        content: '<div>펜도로시</div>', 
+        latlng: new kakao.maps.LatLng(37.586575837220195, 126.99532399455934)
+    },
+    {
+        content: '<div>Take-Out커피점</div>',
+        latlng: new kakao.maps.LatLng(37.588999311994506 , 126.99175162128876)
+    },
+	
+    {
+        content: '<div>레브(REVE)</div>', 
+        latlng: new kakao.maps.LatLng(37.58814106949842 , 126.99110351523113)
+    },
+    {
+        content: '<div>로봇커피</div>',
+        latlng: new kakao.maps.LatLng(37.58835074096437 , 126.99415768498824)
+    },
+    {
+                  content: '<div>커피빈</div>',
+                  latlng: new kakao.maps.LatLng(37.29217114204759, 126.97560052421336)
+                },
+                {
+                  content: '<div>카페나무</div>',
+                  latlng: new kakao.maps.LatLng(37.29686531890362, 126.97451627400869 )
+                },
+                {
+                  content: '<div>펜도로시</div>',
+                  latlng: new kakao.maps.LatLng(37.29591948589479 , 126.97573465366807 )
+                },
+                {
+                  content: '<div>카페NU</div>',
+                  latlng: new kakao.maps.LatLng(37.294338233100355 , 126.97610169990048 )
+                },
+                {
+                  content: '<div>로봇커피</div>',
+                  latlng: new kakao.maps.LatLng(37.29397311045768, 126.97508679106143 )
+                }
+];
+
+for (var i = 0; i < positions.length; i ++) {
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng // 마커의 위치
+    });
+
+    // 마커에 표시할 인포윈도우를 생성합니다 
+    var infowindow = new kakao.maps.InfoWindow({
+        content: positions[i].content // 인포윈도우에 표시할 내용
+    });
+
+    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+}
+
+// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
+
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
+}
+
+/* 아래와 같이도 할 수 있습니다 */
+/*
+for (var i = 0; i < positions.length; i ++) {
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng // 마커의 위치
+    });
+
+    // 마커에 표시할 인포윈도우를 생성합니다 
+    var infowindow = new kakao.maps.InfoWindow({
+        content: positions[i].content // 인포윈도우에 표시할 내용
+    });
+
+    // 마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만듭니다
+    // 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+    (function(marker, infowindow) {
+        // 마커에 mouseover 이벤트를 등록하고 마우스 오버 시 인포윈도우를 표시합니다 
+        kakao.maps.event.addListener(marker, 'mouseover', function() {
+            infowindow.open(map, marker);
+        });
+
+        // 마커에 mouseout 이벤트를 등록하고 마우스 아웃 시 인포윈도우를 닫습니다
+        kakao.maps.event.addListener(marker, 'mouseout', function() {
+            infowindow.close();
+        });
+    })(marker, infowindow);
+}
+*/
+</script>
+
+
+<br/>
+<br/>
+
+<div id="map2" style="width:800px;height:300px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2e5e380bf2532440dc4ab0b1fc797718"></script>
+<script>
+var mapContainer2 = document.getElementById('map2'), // 지도를 표시할 div  
+    mapOption2 = { 
+        center: new kakao.maps.LatLng(37.2939640822484, 126.97500220868707), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map2 = new kakao.maps.Map(mapContainer2, mapOption2); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+
+var positions = [
+    {
+        content: '<div>사랑방</div>', 
+        latlng: new kakao.maps.LatLng(37.588454267790524, 126.99260085630388)
+    },
+    {
+        content: '<div>ttt</div>', 
+        latlng: new kakao.maps.LatLng(37.588364158125714, 126.9924366916139)
+    },
+    {
+        content: '<div>펜도로시</div>', 
+        latlng: new kakao.maps.LatLng(37.586575837220195, 126.99532399455934)
+    },
+    {
+        content: '<div>Take-Out커피점</div>',
+        latlng: new kakao.maps.LatLng(37.588999311994506 , 126.99175162128876)
+    },
+	
+    {
+        content: '<div>레브(REVE)</div>', 
+        latlng: new kakao.maps.LatLng(37.58814106949842 , 126.99110351523113)
+    },
+    {
+        content: '<div>로봇커피</div>',
+        latlng: new kakao.maps.LatLng(37.58835074096437 , 126.99415768498824)
+    },
+    {
+                  content: '<div>커피빈</div>',
+                  latlng: new kakao.maps.LatLng(37.29217114204759, 126.97560052421336)
+                },
+                {
+                  content: '<div>카페나무</div>',
+                  latlng: new kakao.maps.LatLng(37.29686531890362, 126.97451627400869 )
+                },
+                {
+                  content: '<div>펜도로시</div>',
+                  latlng: new kakao.maps.LatLng(37.29591948589479 , 126.97573465366807 )
+                },
+                {
+                  content: '<div>카페NU</div>',
+                  latlng: new kakao.maps.LatLng(37.294338233100355 , 126.97610169990048 )
+                },
+                {
+                  content: '<div>로봇커피</div>',
+                  latlng: new kakao.maps.LatLng(37.29397311045768, 126.97508679106143 )
+                }
+];
+
+for (var i = 0; i < positions.length; i ++) {
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng // 마커의 위치
+    });
+
+    // 마커에 표시할 인포윈도우를 생성합니다 
+    var infowindow = new kakao.maps.InfoWindow({
+        content: positions[i].content // 인포윈도우에 표시할 내용
+    });
+
+    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+}
+
+// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
+
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
+}
+
+
+
+</script>
+</body>
+</html>
