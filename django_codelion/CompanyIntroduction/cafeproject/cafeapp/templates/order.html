@@ -13,11 +13,25 @@
       </div>
       
       <div class="container">
-        <div class="row order-detail">
+
+          <div class="row order-detail">
+            
           <div class="col-lg-8">
             <div>
               <h4 class="order-menu">MENU</h4>
-              <div class="row">
+      
+              <div>
+                {% for menu in menus %}
+                <tr>
+                    <td>{{ menu.title }}</td>
+                    <td>{{ menu.price }}</td>
+                    <td><a href="{% url 'add' post.id %}">+</a></td><br/>
+                </tr>
+                {% endfor %}
+              </div>
+             
+              <!--
+<div class="row">
                 <div class="col-md-4">
                   <p>아메리카노</p>
                   <p>에스프레소</p>
@@ -39,23 +53,39 @@
                   <p>2200</p>
                 </div>
                 <div class="col-md-1">
-                  <p>+</p>
-                  <p>+</p>
-                  <p>+</p>
-                  <p>+</p>
-                  <p>+</p>
-                  <p>+</p>
-                  <p>+</p>
-                  <p>+</p>
+                  <p><input type="submit" value="+"></p>
+                  <p><input type="submit" value="+"></p>
+                  <p><input type="submit" value="+"></p>
+                  <p><input type="submit" value="+"></p>
+                  <p><input type="submit" value="+"></p>
+                  <p><input type="submit" value="+"></p>
+                  <p><input type="submit" value="+"></p>
+                  <p><input type="submit" value="+"></p>
                 </div>
               </div>
+            -->
             </div>
           </div>
+        
 
           <div class="col-lg-4 cart" data-aos="fade-up">
             <div class="row">
               <h4 class="cart-title">CART</h4>
-              <div class="row cart-box" style="float: none; margin:0 auto;">
+          
+              <br/><br/>
+            <tbody>
+                {% for post in posts %}
+                <div style="float: right;">
+                  <td>{{ post.title }}</td>
+                  <br/>
+                  <td>{{ post.price }}</td>
+                  <br/>
+                </div>
+                {% endfor %}
+            </tbody>
+            
+              <!-- 
+                 <div class="row cart-box" style="float: none; margin:0 auto;">
                 <div class="col-md-6">
                   <p>아메리카노</p>
                   <p>초코라떼</p>
@@ -69,18 +99,21 @@
                   <p>6400</p>
                 </div>
               </div>
+               -->
+             
 
               <div class="row" style="float: none; margin:0 auto;">
                 <div class="col-md-9 order-total-price">
                   총 금액
                 </div>
                 <div class="col-md-3 order-total-price">
-                  8200
+                  {{ sum }}
                 </div>
               </div>
             </div>
-
-            <button class="pay-button">결제하기</button>
+          <a href="{% url 'payment' %}" class="pay-button">
+              <span class="text">결제하기</span>
+          </a>
           </div>
         </div>
       </div>

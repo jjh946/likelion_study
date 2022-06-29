@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<br/>
+<br/>
+<br/>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="새 글">
+</form>
+<div class="card shadow mb-4">
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="60%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th width="70%">메뉴</th>
+                        <th>주문 시간</th>
+                        <th>가격</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <td><a href="">{{ post.title }}</a></td>
+                        <td><a href="">{{ post.date }}</a></td>
+                        <td><a href="">{{ post.price }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>합계</th>
+                        <th></th>
+                        <th>{{ sum }}</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+ 
+<a href="{% url 'payment' %}" class="btn btn-success btn-icon-split">
+    <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+    </span>
+    <span class="text">결제하기</span>
+</a>
+
+      
+
+{% endblock %}

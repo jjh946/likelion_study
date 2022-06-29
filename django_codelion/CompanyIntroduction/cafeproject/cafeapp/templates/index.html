@@ -8,8 +8,11 @@
     <h2>성균관대 학생들을 위한 카페 지침서,</h2>
     <h1>CAFE IN SKKU</h1>
     {% if user.is_authenticated %}
-    안녕하세요, {{ user.username }}님!
-    <a href="{% url 'logout' %}">로그아웃</a>
+    <div style="color:white;">
+      안녕하세요, {{ user.username }}님!
+    <a href="{% url 'logout' %}" class="btn-get-started scrollto">로그아웃</a>
+    </div>
+    
     {% else %}
     <div class="main_btn">
       <a href="{% url 'login' %}" class="btn-get-started scrollto">Log-in</a>
@@ -266,12 +269,12 @@
 
 
           <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-
-            <p>커피빈 [N센터 1층]</p>
-            <p>카페나무 [기숙사의관 1층]
-            <p>팬도로시 [산학협력센터 1층]</p>
-            <p>카페NU [제1공학관 22동]</p>
-            <p>로봇커피 [삼성학술정보관 1층]</p>
+            <p><a href="{% url 'mmm' %}">커피빈 [N센터 1층]</a></p>
+            <p><a href="{% url 'mmm' %}">카페나무 [기숙사의관 1층]</a></p>
+            <p><a href="{% url 'mmm' %}">팬도로시 [산학협력센터 1층]</a></p>
+            <p><a href="{% url 'mmm' %}">카페NU [제1공학관 22동]</a></p>
+            <p><a href="{% url 'mmm' %}">로봇커피 [삼성학술정보관 1층]</a></p>
+          
           </div>
         </div>
       </div>

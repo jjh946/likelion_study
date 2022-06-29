@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h1>결제하기</h1>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <div>결제 방법: 카드</div>
+        <div>{{ sum }} 원 결제</div>
+    </table>
+    <input type="submit" value="결제 완료">
+</form>
+
+{% endblock %}
