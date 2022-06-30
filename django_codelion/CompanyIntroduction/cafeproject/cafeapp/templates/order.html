@@ -25,7 +25,8 @@
                 <tr>
                     <td>{{ menu.title }}</td>
                     <td>{{ menu.price }}</td>
-                    <td><a href="{% url 'add' post.id %}">+</a></td><br/>
+                    <td>{{ menu.id }}</td><br/>
+                    <td><a href="{% url 'add' %}">+</a></td><br/>
                 </tr>
                 {% endfor %}
               </div>

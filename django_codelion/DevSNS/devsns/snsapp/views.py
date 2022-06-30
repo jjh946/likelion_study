@@ -13,7 +13,7 @@ def postcreate(request):
         if form.is_valid():
             form.save()
             return redirect('home')
-    #request method가 ost일 경우
+    #request method가 post일 경우
         #입력값 저장
 
     #request method가 get일 경우

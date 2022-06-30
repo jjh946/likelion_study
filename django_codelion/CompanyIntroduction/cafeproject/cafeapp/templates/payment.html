@@ -2,20 +2,198 @@
 {% block content %}
 
 
-<br/>
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
+<br />
 
 <h1>결제하기</h1>
-
 <form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>
-        <div>결제 방법: 카드</div>
-        <div>{{ sum }} 원 결제</div>
-    </table>
-    <input type="submit" value="결제 완료">
+  {% csrf_token %}
+  <table>
+    <div>결제 방법: 카드</div>
+    <div>{{ sum }} 원 결제</div>
+  </table>
+  <input type="submit" value="결제 완료">
 </form>
+
+
+<!-- Payment -->
+<section>
+  <h2 class="checkout">주문 / 결제</h2>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8">
+        <div>
+          <h5 style="font-weight: bold;">결제수단</h5>
+          <div class="couponbox">
+            <h6 class="newfont">할인쿠폰</h6>
+            <div>
+              &nbsp;&nbsp;&nbsp;쿠폰번호&nbsp;
+              <input type="text" size="20">
+              <button class="couponuse">적용</button>
+            </div>
+          </div>
+          <div>
+            <button class="creditcard newfont">신용카드</button>
+            <button class="phone newfont">휴대폰</button>
+            <button class="kakaopay newfont">카카오페이</button>
+          </div>
+          <div style="clear:both;"></div>
+
+          <!-- 결제수단: 신용카드 -->
+          <div style="margin-top: 20px;">
+            <div style="float: left;">
+              <div>카드번호</div>
+              <input type="text" size="4" maxlength="4"> -
+              <input type="text" size="4" maxlength="4"> -
+              <input type="text" size="4" maxlength="4"> -
+              <input type="text" size="4" maxlength="4">
+            </div>
+
+            <div style="float: left; margin-left: 55px;">
+              <div>카드유효기간</div>
+              <input type="text" size="2" maxlength="2">
+              /
+              <input type="text" size="2" maxlength="2">
+            </div>
+
+            <div style="float: left; margin-left: 55px;">
+              <div>CVC 번호</div>
+              <input type="text" size="3" maxlength="3">
+            </div>
+            <div style="clear:both;"></div>
+
+            <div style="float:left; margin-right:30px">
+              <div style="margin-top: 25px;">이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름</div>
+              <div style="margin-top: 25px;">휴대폰번호</div>
+              <div style="margin-top: 25px;">인 증 번 호</div>
+            </div>
+
+            <div style="float:left;">
+              <div style="margin-top: 20px;"><input type="text" size="10" maxlength="3"></div>
+              <div style="margin-top: 20px;">
+                <input type="text" size="4" maxlength="3"> -
+                <input type="text" size="4" maxlength="4"> -
+                <input type="text" size="4" maxlength="4">
+              </div>
+              <div style="margin-top: 20px;">
+                <input type="text" size="10" maxlength="6">
+              </div>
+            </div>
+
+            <div style="float:left;margin-top:70px;margin-left:25px;">
+              <button class="phonenum">인증</button><br>
+              <button class="phonecheck">확인</button>
+            </div>
+          </div>
+          <!-- 신용카드 끝 -->
+
+          <div style="clear:both;"></div>
+          <br>
+          <p>-----신용카드-----</p>
+
+          <!-- 결제수단: 휴대폰 -->
+          <div style="float:left; margin-right:30px">
+            <div style="margin-top: 25px;">이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름</div>
+            <div style="margin-top: 25px;">생 년 월 일</div>
+            <div style="margin-top: 25px;">휴대폰번호</div>
+            <div style="margin-top: 25px;">인 증 번 호</div>
+          </div>
+
+          <div style="float:left;">
+            <div style="margin-top: 20px;"><input type="text" size="10" maxlength="3"></div>
+            <div style="margin-top: 20px;">
+              <input type="text" size="4" maxlength="4"> 년&nbsp;&nbsp;
+              <input type="text" size="2" maxlength="2"> 월&nbsp;&nbsp;
+              <input type="text" size="2" maxlength="2"> 일
+            </div>
+            <div style="margin-top: 20px;">
+              <input type="text" size="4" maxlength="3"> -
+              <input type="text" size="4" maxlength="4"> -
+              <input type="text" size="4" maxlength="4">
+            </div>
+            <div style="margin-top: 20px;">
+              <input type="text" size="10" maxlength="6">
+            </div>
+          </div>
+
+          <div style="float:left;margin-top:120px;">
+            <button class="phonenum">인증</button><br>
+            <button class="phonecheck">확인</button>
+          </div>
+          <!-- 휴대폰 끝 -->
+
+          <div style="clear:both;"></div>
+          <br>
+          <p>-----휴대폰-----</p>
+
+          <!-- 결제수단: 카카오페이 -->
+          <h4 style="text-align:center;font-family:'Gowun Dodum', sans-serif;">카카오페이 결제페이지로 이동합니다</h4>
+          <button class="kakaomove">다음</button>
+          <!-- 카카오페이 끝 -->
+
+          <br>
+          <p>-----카카오페이-----</p>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="pay-cart-1">
+          <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+              <h5 class="newfont paylist">주문내역</h5>
+              <button class="edit">EDIT</button>
+            </div>
+            <div class="linediv" style="clear:both;"></div>
+
+            <div class="paylists">
+              {% for cartmenu in cartmenus %}
+              <div>
+                <p style="float:left;">{{ cartmenu.title }}</p>
+                <p style="float:right;">{{ cartmenu.price }}</p>
+                <div style="clear:both;"></div>
+              </div>
+              {% endfor %}
+
+            </div>
+
+            <div class="pay-cart-2">
+              <h5 class="newfont paydetail">결제상세</h5>
+              <div class="paylistss">
+                <div>
+                  <p class="firstmoney">상품금액</p>
+                  <p class="firstmoney1">{{ sum }}</p>
+                  <div style="clear:both;"></div>
+                </div>
+                <div>
+                  <p class="discountmoney">할인금액</p>
+                  <p class="discountmoney1">없음</p>
+                  <div style="clear:both;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pay-cart-3">
+              <h5 class="newfont paytotal">Total</h5>
+              <h5 class="totalmoney">{{ sum }}</h5>
+              <div style="clear:both;"></div>
+            </div>
+            <input type="submit" class="check-button" value="결제 완료">
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+</section>
+
+<!--payment 끝-->
+
+
 
 {% endblock %}
