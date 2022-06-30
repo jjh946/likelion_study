@@ -7,10 +7,12 @@
     <div class="container">
     <div class="row content">
 
-          <div class="section-title" data-aos="fade-right">
-            <h2>Gift</h2>
-          </div>
-
+      <div class="order-info">
+        <div class="section-title" data-aos="fade-right">
+          <h2>GIFT</h2>
+        </div>
+        <p class="order-info" data-aos="fade-right">명륜캠 > 사랑방 > 선물하기</p>
+      </div>
           <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
             <div  style = "margin-left: 80px; margin-right:60px;" class = "choose">
               <img class = "choose_img" src="{% static '/img/cafeimg/americano.jpg' %}" alt="americano">
@@ -26,8 +28,8 @@
             <p>받는 사람의 ID를 입력하세요.</p>
             <input type ="ID">
               <div style = "margin-top: 50px;">
-                <button class="click_btn">결제하기</button>
-                <button class="click_btn">취소</button>
+                <a href="{% url 'payment' %}"><button class="click_btn">결제하기</button></a>
+                <a href="{% url 'gift' %}"><button class="click_btn">취소</button></a>
               </div>
             </div>
           </div>

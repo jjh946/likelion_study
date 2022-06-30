@@ -1,26 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<br />
-<br />
-<br />
-<br />
-
-<h1>결제하기</h1>
-<form action="" method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  <table>
-    <div>결제 방법: 카드</div>
-    <div>{{ sum }} 원 결제</div>
-  </table>
-  <input type="submit" value="결제 완료">
-</form>
-
-
 <!-- Payment -->
 <section>
-  <h2 class="checkout">주문 / 결제</h2>
+  <h2 class="checkout">주문하기 결제</h2>
 
   <div class="container">
     <div class="row">
@@ -183,7 +166,7 @@
               <h5 class="totalmoney">{{ sum }}</h5>
               <div style="clear:both;"></div>
             </div>
-            <input type="submit" class="check-button" value="결제 완료">
+            <input type="submit" class="pay-button" value="결제 완료">
           </form>
         </div>
 

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- ======= Main page ======= -->
+<section id="mero" class="d-flex align-items-center">
+  <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+    
+    <h1>{{ user.username }} 님의 주문이 완료되었습니다!</h1>
+    
+    
+
+    <div class="hssc_btn">
+        <a href="{% url 'home' %}" ><button  class="order_btn" >홈으로</button></a>
+        <a href="{% url 'mypage' %}" ><button  class="gift_btn" >마이페이지</button></a>
+    </div>
+    
+   
+
+  </div>
+</section><!-- End Main page -->
+
+
+
+{% endblock %}

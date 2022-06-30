@@ -1,20 +1,41 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from cafeapp.forms import CartMenuForm
 
-from cafeapp.models import CartMenu, Menu
+from cafeapp.models import Cafe, CartMenu, Menu
 
 def home(request):
-    return render(request, 'index.html',)
-    
+    cafes = Cafe.objects.all()
+    return render(request, 'index.html',{'cafes':cafes})
+'''
+def home(request):
+    cafes = Cafe.objects.all()
+    return render(request, 'index.html',{'cafes':cafes})
+'''
 
 def detail(request):
     return render(request, 'portfolio-details.html')
 
+
+'''
+def mmm(request, cafe_id):
+    cafe_detail = get_object_or_404(Cafe, pk=cafe_id)
+    return render(request, 'mmm.html', {'cafe_detail':cafe_detail})
+'''
 def mmm(request):
     return render(request, 'mmm.html')
 
 def mypage(request):
     return render(request, 'mypage.html')
+
+def done(request):
+    return render(request, 'done.html')
+
+def gift(request):
+    return render(request, 'gift.html')
+
+def gift2(request):
+    return render(request, 'gift2.html')
+
 
 
 
@@ -44,12 +65,7 @@ def add(request, post_id):
 
 def payment(request):
     if request.method == 'POST' or request.method == 'FILES':
-        
-        return redirect('order')
-    #request method가 post일 경우
-        #입력값 저장
-
-    #request method가 get일 경우
+        return redirect('done')
     else:
         cartmenus = CartMenu.objects.filter().order_by('-date')
         sum = 0
@@ -57,8 +73,3 @@ def payment(request):
             sum += menu.price
         return render(request, 'payment.html', {'cartmenus':cartmenus,'sum':sum})
 
-def gift(request):
-    return render(request, 'gift.html')
-
-def gift2(request):
-    return render(request, 'gift2.html')
