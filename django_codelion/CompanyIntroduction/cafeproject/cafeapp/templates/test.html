@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- ======= 명륜카페 Section ======= -->
+    <!-- 원래 about 이었음 -->
+    <section id="m1" class="m1"> 
+        <div class="container">
+          <div class="row content">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                {% if cafe_detail.myungyul %}
+                <h2>율전 - {{ cafe_detail.title }}</h2>
+                {% else %}
+                <h2>명륜 - {{ cafe_detail.title }}</h2>
+                {% endif %}
+                
+              <img src="" alt="사랑방"></div>
+            <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+            <div class="cafe_info">
+              <h2>{{ cafe_detail.title }}</h2>
+              <hr class="info_hr">
+                <P> 위치 : {{ cafe_detail.location }}</P>
+                <P> 전화번호 : {{ cafe_detail.phone }}</P>
+                <P> 영업시간 : {{ cafe_detail.term }}</P>
+                {% if cafe_detail.openState %}
+                <P> 영업상태 : OPEN </P>
+                {% else %}
+                <P> 영업상태 : CLOSE </P>
+                {% endif %}
+            </div>
+            <div class="hssc_btn">
+              <a href="{% url 'order' %}" ><button  class="order_btn" >ORDER</button></a>
+              <a href="{% url 'gift' %}" ><button  class="gift_btn" >GIFT</button></a>
+            </div>
+          </div>
+        </section>
+  
+
+  
+      
+      <!-- End 명륜카페 Section -->
+      
+
+
+
+{% endblock %}

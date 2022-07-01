@@ -15,6 +15,7 @@ class Menu(models.Model):
     title = models.CharField(max_length=200)
     price = models.IntegerField()
     date = models.DateTimeField(auto_now_add=True)
+    #image = models.ImageField()
     
 
     def __str__(self):

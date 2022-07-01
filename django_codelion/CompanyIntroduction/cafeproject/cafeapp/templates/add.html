@@ -1,14 +1,77 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!-- ADD -->
+<section>
+    <div class="container">
 
-<br/>
-<br/>
-<br/>
-<br/>
+        <div class="order-info">
+            <div class="section-title" >
+                <h2>ORDER</h2>
+            </div>
+            <p class="order-info" >명륜캠 > 사랑방 > 주문하기</p>
+        </div>
 
-<h1>{{ menu_add.title }}</h1>
-<h2>{{ menu_add.price }}</h2>
+        <div class="container">
 
+            <div class="row order-detail">
+
+                <div class="col-lg-8">
+                    <div>
+                        <h4 class="order-menu">MENU</h4>
+
+                        <div>
+                            {% for menu in menus %}
+                            <tr>
+                                <td>{{ menu.title }}</td>
+                                <td>{{ menu.price }}</td>
+
+                                <td><a href="{% url 'add' menu.id %}">+</a></td><br /><br />
+                            </tr>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 cart" >
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <h4 class="cart-title">{{ menu_add.title }}</h4>
+
+                            <br /><br />
+                            <tbody>
+                                {% for post in posts %}
+                                <div style="float: right;">
+                                    <td>{{ post.title }}</td>
+                                    <br />
+                                    <td>{{ post.price }}</td>
+                                    <br />
+                                </div>
+                                {% endfor %}
+                            </tbody>
+
+
+
+
+                            <div class="row" style="float: none; margin:0 auto;">
+                                <div class="col-md-9 order-total-price">
+                                    금액
+                                </div>
+                                <div class="col-md-3 order-total-price">
+                                    {{ menu_add.price }}
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" class="pay-button" value="추가 하기">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
 
 {% endblock %}

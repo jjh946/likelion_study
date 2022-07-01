@@ -2,12 +2,13 @@ from django.contrib import admin
 from django.urls import path
 from cafeapp import views
 from accounts import views as accounts_views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('detail/', views.detail, name='detail'),
-    path('mmm/', views.mmm, name='mmm'),
+    path('detail/<int:post_id>', views.detail, name='detail'),
     path('mypage/', views.mypage, name='mypage'),
     path('done/', views.done, name='done'),
 
@@ -20,9 +21,10 @@ urlpatterns = [
 
     path('order/', views.order, name='order'),
     path('payment/', views.payment, name='payment'),
-    path('add/', views.add, name='add'),
+    path('add/<int:post_id>', views.add, name='add'),
 
     path('gift/', views.gift, name='gift'),
     path('gift2/', views.gift2, name='gift2'),
     
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

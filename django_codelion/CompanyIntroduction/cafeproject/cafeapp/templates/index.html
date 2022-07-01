@@ -151,12 +151,11 @@
 
 
           <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-            <p><a href="{% url 'mmm' %}">사랑방</a></p>
-            <p><a href="{% url 'mmm' %}">ttt</a></p>
-            <p><a href="{% url 'mmm' %}">팬도로시</a></p>
-            <p><a href="{% url 'mmm' %}">Take-Out 커피점</a></p>
-            <p><a href="{% url 'mmm' %}">레브</a></p>
-            <p><a href="{% url 'mmm' %}">로봇커피</a></p>
+            {% for cafe in cafes %}
+            {% if cafe.id < 7  %}
+            <p><a href="{% url 'detail' cafe.id %}">{{ cafe.title }}</a></p>
+            {% endif %}
+            {% endfor %}
           </div>
 
         </div>
@@ -269,11 +268,11 @@
 
 
           <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-            <p><a href="{% url 'mmm' %}">커피빈 [N센터 1층]</a></p>
-            <p><a href="{% url 'mmm' %}">카페나무 [기숙사의관 1층]</a></p>
-            <p><a href="{% url 'mmm' %}">팬도로시 [산학협력센터 1층]</a></p>
-            <p><a href="{% url 'mmm' %}">카페NU [제1공학관 22동]</a></p>
-            <p><a href="{% url 'mmm' %}">로봇커피 [삼성학술정보관 1층]</a></p>
+            {% for cafe in cafes %}
+            {% if cafe.id >= 7  %}
+            <p><a href="{% url 'detail' cafe.id %}">{{ cafe.title }}</a></p>
+            {% endif %}
+            {% endfor %}
           
           </div>
         </div>
