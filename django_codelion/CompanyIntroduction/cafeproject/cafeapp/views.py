@@ -10,7 +10,7 @@ def home(request):
 
 def detail(request, post_id):
     cafe_detail = get_object_or_404(Cafe, pk=post_id)
-    return render(request, 'test.html', {'cafe_detail':cafe_detail})
+    return render(request, 'detail.html', {'cafe_detail':cafe_detail})
 
 #def detail(request):
  #   return render(request, 'detail.html')
