@@ -14,8 +14,7 @@ class CartMenu(models.Model):
 class Menu(models.Model):
     title = models.CharField(max_length=200)
     price = models.IntegerField()
-    date = models.DateTimeField(auto_now_add=True)
-    #image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
     
 
     def __str__(self):

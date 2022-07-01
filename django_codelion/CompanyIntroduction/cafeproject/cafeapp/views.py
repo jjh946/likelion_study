@@ -22,10 +22,19 @@ def done(request):
     return render(request, 'done.html')
 
 def gift(request):
-    return render(request, 'gift.html')
+    menus = Menu.objects.all()
+    return render(request, 'gift.html', {'menus':menus})
 
-def gift2(request):
-    return render(request, 'gift2.html')
+def gift2(request, post_id):
+    menu_detail = get_object_or_404(Menu, pk=post_id)
+    return render(request, 'gift2.html', {'menu_detail':menu_detail})
+
+def gift3(request, post_id):
+    if request.method == 'POST' or request.method == 'FILES':
+        return redirect('done')
+    else:
+        menu_detail = get_object_or_404(Menu, pk=post_id)
+        return render(request, 'gift3.html', {'menu_detail':menu_detail})
 
 
 
@@ -45,12 +54,12 @@ def add(request, post_id):
         return redirect('order')
     else:
         menus = Menu.objects.all()
-        menu_add = get_object_or_404(Menu, pk=post_id)
+        menu_detail = get_object_or_404(Menu, pk=post_id)
         post = CartMenu()
-        post.title = menu_add.title
-        post.price = menu_add.price
+        post.title = menu_detail.title
+        post.price = menu_detail.price
         post.save()
-        return render(request, 'add.html', {'menus':menus,'menu_add':menu_add})
+        return render(request, 'add.html', {'menus':menus,'menu_detail':menu_detail})
 
 
 

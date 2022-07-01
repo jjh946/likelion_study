@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 <!-- ADD -->
@@ -6,10 +7,10 @@
     <div class="container">
 
         <div class="order-info">
-            <div class="section-title" >
+            <div class="section-title">
                 <h2>ORDER</h2>
             </div>
-            <p class="order-info" >명륜캠 > 사랑방 > 주문하기</p>
+            <p class="order-info">주문하기</p>
         </div>
 
         <div class="container">
@@ -34,13 +35,40 @@
                 </div>
 
 
-                <div class="col-lg-4 cart" >
+                <div class="col-lg-4 cart">
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
-                            <h4 class="cart-title">{{ menu_add.title }}</h4>
+                            <h4 class="cart-title">{{ menu_detail.title }}</h4>
 
                             <br /><br />
+                            {% if menu_detail.id == 1 %}
+                            <img class="choose_img" src="{% static '/img/cafeimg/americano.jpg' %}" alt="americano">
+                            {% elif menu_detail.id == 2 %}
+                            <img class="choose_img" src="{% static '/img/cafeimg/espresso.jpg' %}" alt="americano">
+                            {% else %}
+                            {% endif %}
+
+                            {% if menu_detail.id == 3 %}
+                            <img class="choose_img" src="{% static '/img/cafeimg/cafelatte.jpg' %}" alt="americano">
+                            {% elif menu_detail.id == 4 %}
+                            <img class="choose_img" src="{% static '/img/cafeimg/caffucino.jpg' %}" alt="americano">
+                            {% else %}
+                            {% endif %}
+
+                            {% if menu_detail.id == 5 %}
+                            <img class="choose_img" src="{% static '/img/cafeimg/vanilla.jpg' %}" alt="americano">
+                            {% elif menu_detail.id == 6 %}
+                            <img class="choose_img" src="{% static '/img/cafeimg/caramel.jpg' %}" alt="americano">
+                            {% else %}
+                            {% endif %}
+
+                            {% if menu_detail.id == 7 %}
+                            <img class="choose_img" src="{% static '/img/cafeimg/chocolate.jpg' %}" alt="americano">
+                            {% elif menu_detail.id == 8 %}
+                            <img class="choose_img" src="{% static '/img/cafeimg/icetea.jpg' %}" alt="americano">
+                            {% else %}
+                            {% endif %}
                             <tbody>
                                 {% for post in posts %}
                                 <div style="float: right;">
@@ -60,7 +88,7 @@
                                     금액
                                 </div>
                                 <div class="col-md-3 order-total-price">
-                                    {{ menu_add.price }}
+                                    {{ menu_detail.price }}
                                 </div>
                             </div>
                         </div>

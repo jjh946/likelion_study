@@ -24,7 +24,8 @@ urlpatterns = [
     path('add/<int:post_id>', views.add, name='add'),
 
     path('gift/', views.gift, name='gift'),
-    path('gift2/', views.gift2, name='gift2'),
+    path('gift2/<int:post_id>', views.gift2, name='gift2'),
+    path('gift3/<int:post_id>', views.gift3, name='gift3'),
     
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
